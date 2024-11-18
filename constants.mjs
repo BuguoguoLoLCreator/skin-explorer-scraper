@@ -1,5 +1,5 @@
 /* URLs */
-export const CDRAGON = "https://raw.communitydragon.org";
+export const CDRAGON = "https://communitydragon.buguoguo.cn";
 
 /* Globals */
 /**

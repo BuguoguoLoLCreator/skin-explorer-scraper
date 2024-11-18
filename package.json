@@ -1,6 +1,6 @@
 {
   "name": "skin-explorer-scraper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -13,7 +13,7 @@
     "p-limit": "^4.0.0",
     "redis-json": "^6.0.2"
   },
-  "engines": {
-    "node": "16.x"
-  }
+  // "engines": {
+  //   "node": "16.x"
+  // }
 }
