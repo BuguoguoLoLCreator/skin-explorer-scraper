@@ -2,7 +2,7 @@ import isEqual from "lodash/isEqual.js";
 import axios from "axios";
 import { cache } from "./lib/cache.mjs";
 import { CDRAGON, SKIN_SCRAPE_INTERVAL, SUBSTITUTIONS } from "./constants.mjs";
-import { fetchSkinChanges } from "./lib/skin-changes.mjs";
+// import { fetchSkinChanges } from "./lib/skin-changes.mjs";
 
 const dataURL = (p, patch = "pbe") =>
   `${CDRAGON}/${patch}/plugins/rcp-be-lol-game-data/global/zh_cn${p}`;
@@ -162,17 +162,17 @@ async function scrape() {
       getLatestSkinsDefault(),
     ]);
   }
-  const oldChanges = await cache.get("changes", {});
-  const changes = await fetchSkinChanges(champions, skins,skinsDefault);
-  const haveNewChanges = !isEqual(changes, oldChanges);
-  shouldRebuild = shouldRebuild || haveNewChanges;
+  // const oldChanges = await cache.get("changes", {});
+  // const changes = await fetchSkinChanges(champions, skins,skinsDefault);
+  // const haveNewChanges = !isEqual(changes, oldChanges);
+  // shouldRebuild = shouldRebuild || haveNewChanges;
 
-  if (haveNewChanges) {
-    await cache.set("changes", changes);
-    console.log("[皮肤版本记录] Redis皮肤版本信息更新完成");
-  } else {
-    console.log("[皮肤版本记录] 没有新增改动，跳过");
-  }
+  // if (haveNewChanges) {
+  //   await cache.set("changes", changes);
+  //   console.log("[皮肤版本记录] Redis皮肤版本信息更新完成");
+  // } else {
+  //   console.log("[皮肤版本记录] 没有新增改动，跳过");
+  // }
   await cache.set("persistentVars", {
     lastUpdate: now,
     oldVersionString: metadata.version,
